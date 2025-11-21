@@ -42,7 +42,7 @@ Or install packages individually if preferred.
 
 ## **4. Environment variables**
 
-Open file named **`.env`** in the project root and supply your secrets:
+Open file named **`.env`** or create one in the project root if missing and supply your secrets:
 
 ```
 SECRET_KEY=YOUR_SECRET_KEY
