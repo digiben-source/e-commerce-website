@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+    
+
+
+        .purchase-history {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .purchase-history h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .purchase-history table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .purchase-history th,
+        .purchase-history td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .purchase-history th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .purchase-history tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .purchase-history tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .purchase-history td {
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+</head>
+
+<body>
+    <nav id="nav">
+        <div class="navTop">
+            <div class="navItem">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Form image" height="100" width="250">
+                </div>
+            <div class="navItem">
+                <div class="search">
+                    <input type="text" placeholder="Search..." class="searchInput">
+                    <img src="{{ url_for('static', filename='img/search.png') }}" width="20" height="20" alt="" class="searchIcon">
+                </div>
+            </div>
+        </div>
+        <div class="navBottom">
+            <h3 class="menuItem">LADIES CLOTHES</h3>
+            <h3 class="menuItem">MENS SUITS</h3>
+            <h3 class="menuItem">UNISEX</h3>
+        </div>
+        <div class="navItem">
+            <span class="limitedOffer">Limited Offer!</span>
+        </div>
+    </nav>
+    
+    <div class="purchase-history">
+        <h1>Purchase History for {{ username }}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for purchase in purchases %}
+                <tr>
+                    <td>{{ purchase.id }}</td>
+                    <td>{{ purchase.item_name }}</td>
+                    <td>GHC {{ purchase.amount }}</td>
+                    <td>{{ purchase.purchase_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+
+</html>

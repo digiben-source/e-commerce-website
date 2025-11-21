@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+.container {
+  width: 400px;
+  text-align: center;
+}
+.com{
+  color: yellow;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.container img{
+  margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+input[type="text"],
+input[type="password"],
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: #060e38;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+#homeButtonContainer {
+  margin-top: 20px;
+}

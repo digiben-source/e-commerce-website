@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Nunito&family=Palanquin+Dark:wght@500&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>JustBuy</title>
+</head>
+
+<body>
+    <nav id="nav">
+        <div class="navTop">
+            <div class="navItem">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Form image" height="100" width="250">
+                </div>
+            <div class="navItem">
+                <div class="search">
+                    <input type="text" placeholder="Search..." class="searchInput">
+                    <img src="{{ url_for('static', filename='img/search.png') }}" width="20" height="20" alt="" class="searchIcon">
+                </div>
+            </div>
+        </div>
+        <div class="navBottom">
+            <h3 class="menuItem">LADIES CLOTHES</h3>
+            <h3 class="menuItem">MENS SUITS</h3>
+            <h3 class="menuItem">UNISEX</h3>
+        </div>
+        <div class="navItem">
+            <span class="limitedOffer">Limited Offer!</span>
+        </div>
+    </nav>
+    <div class="slider">
+        <div class="sliderWrapper">
+            <div class="sliderItem">
+                <img src="{{ url_for('static', filename='img/brown.jpg') }}" alt="" class="sliderImg" id="firsts">
+                <div class="sliderBg"></div>
+                <h1 class="sliderTitle">LADIES</br> TOP</h1>
+                <h2 class="sliderPrice">GHC 1255</h2>
+                <a href="#product">
+                    <button class="buyButton">BUY NOW!</button>
+                </a>
+            </div>
+            <div class="sliderItem">
+                <img src="{{ url_for('static', filename='img/black-men.jpg') }}" alt="" class="sliderImg" id="jordan">
+                <div class="sliderBg"></div>
+                <h1 class="sliderTitle">MENS</br>SUIT</h1>
+                <h2 class="sliderPrice">GHC 1149</h2>
+                <a href="#product">
+                    <button class="buyButton">BUY NOW!</button>
+                </a>
+            </div>
+            <div class="sliderItem">
+                <img src="{{ url_for('static', filename='img/white-slides.jpg') }}" alt="" class="sliderImg" id="thirds">
+                <div class="sliderBg"></div>
+                <h1 class="sliderTitle">YEEZY</br> SLIDES</h1>
+                <h2 class="sliderPrice">GHC 1109</h2>
+                <a href="#product">
+                    <button class="buyButton">BUY NOW!</button>
+                </a>
+            </div>
+        </div>
+    </div>
+   
+    <div class="features">
+        <div class="feature">
+            <img src="{{ url_for('static', filename='img/shipping.png') }}" alt="" class="featureIcon">
+            <span class="featureTitle">FREE SHIPPING</span>
+            <span class="featureDesc">Free worldwide shipping on all orders.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="{{ url_for('static', filename='img/return.png') }}" alt="">
+            <span class="featureTitle">30 DAYS RETURN</span>
+            <span class="featureDesc">No question return and easy refund in 14 days.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="{{ url_for('static', filename='img/gift.png') }}" alt="">
+            <span class="featureTitle">GIFT CARDS</span>
+            <span class="featureDesc">Buy gift cards and use coupon codes easily.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="{{ url_for('static', filename='img/contact.png') }}" alt="">
+            <span class="featureTitle">CONTACT US!</span>
+            <span class="featureDesc">Keep in touch via email and support system.(ask our bot @AndyBot)</span>
+        </div>
+    </div>
+
+    <div class="product" id="product">
+        <img src="{{ url_for('static', filename='img/brown.jpg') }}" alt="" class="productImg">
+        <div class="productDetails">
+            <h1 class="productTitle">Summer Top</h1>
+            <h2 class="productPrice">Ghc1255</h2>
+            <p class="productDesc">This product has been tested by Fortress Amatari.</p>
+            <div class="colors">
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+            </div>
+            <div class="sizes">
+                <div class="size">S</div>
+                <div class="size">M</div>
+                <div class="size">L</div>
+            </div>
+            
+            <button class="productButton" onclick="showPaymentForm()">BUY NOW!</button>
+        </div>
+        <div class="payment">
+            <h1 class="payTitle">Personal Information</h1>
+            <form action="{{ url_for('purchase') }}" method="post">
+                <label>Full Name</label>
+                <input type="text" name="full_name" placeholder="Rosaline Asare" class="payInput" required>
+                <label>Phone Number</label>
+                <input type="text" name="phone_number" placeholder="+233 244 567 890" class="payInput" required>
+                <label>Address</label>
+                <input type="text" name="address" placeholder="Pipe Ano St 21 22-145" class="payInput" required>
+                <h1 class="payTitle">Card Information</h1>
+                <div class="cardIcons">
+                    <img src="{{ url_for('static', filename='img/visa.png') }}" width="40" alt="" class="cardIcon">
+                    <img src="{{ url_for('static', filename='img/master.png') }}" alt="" width="40" class="cardIcon">
+                </div>
+                <input type="password" name="card_number" class="payInput" placeholder="Card Number" required>
+                <div class="cardInfo">
+                    <input type="text" name="expiry_mm" placeholder="mm" class="payInput sm" required>
+                    <input type="text" name="expiry_yyyy" placeholder="yyyy" class="payInput sm" required>
+                    <input type="text" name="cvv" placeholder="cvv" class="payInput sm" required>
+                </div>
+                <input type="hidden" name="item_name" value="Summer Top">
+                <input type="hidden" name="amount" value="1255">
+                <button type="submit" class="payButton">Checkout!</button>
+            </form>
+            <span class="close">X</span>
+        </div>
+        
+    </div>
+    <div class="gallery">
+        <div class="galleryItem">
+            <h1 class="galleryTitle">BRAND FASHION!</h1>
+            <img src="{{ url_for('static', filename='img/IMG_1413.JPG') }}" alt="" class="galleryImg">
+        </div>
+        <div class="galleryItem">
+            <img src="{{ url_for('static', filename='img/IMG_1412.JPG') }}" alt="" class="galleryImg">
+            <h1 class="galleryTitle">BRAND</h1>
+        </div>
+        <div class="galleryItem">
+            <h1 class="galleryTitle">BRAND CLOTHES!</h1>
+            <img src="{{ url_for('static', filename='img/IMG_1414.jpg') }}" alt="" class="galleryImg">
+        </div>
+    </div>
+    <div class="newSeason">
+        <div class="nsItem"></div>
+        <div class="nsItem">
+            <h3 class="nsTitleSm">SUMMER NEW ARRIVALS</h3>
+            <h1 class="nsTitle">New Season</h1>
+            <h1 class="nsTitle">New Collection</h1>
+            <a href="#nav">
+                <button class="nsButton">CHOOSE YOUR STYLE</button>
+            </a>
+        </div>
+        <div class="nsItem"></div>
+    </div>
+    <footer>
+        <div class="footerLeft">
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">About Us</h1>
+                <ul class="fList">
+                    <li class="fListItem">Company</li>
+
+                    <li class="fListItem">Contact</li>
+                    <li class="fListItem">Careers</li>
+                    <li class="fListItem">Affiliates</li>
+                    <li class="fListItem">Stores</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Useful Links</h1>
+                <ul class="fList">
+                    <li class="fListItem">Support</li>
+                    <li class="fListItem">Refund</li>
+                    <li class="fListItem">FAQ</li>
+                    <li class="fListItem">Feedback</li>
+                    <li class="fListItem">Stories</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Products</h1>
+                <ul class="fList">
+                    <li class="fListItem">Ladies Clothes</li>
+                    <li class="fListItem">Men's Suits</li>
+                    <li class="fListItem">Unisex</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerRight">
+            <div class="footerRightMenu">
+                <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
+                <div class="fMail">
+                    <input type="text" placeholder="example@email.com" class="fInput">
+                    <button class="fButton">Join!</button>
+                </div>
+            </div>
+            <div class="footerRightMenu">
+                <h1 class="fMenuTitle">Follow Us</h1>
+                <div class="fIcons">
+                    <img src="./img/facebook.png" alt="" class="fIcon">
+                    <img src="./img/twitter.png" alt="" class="fIcon">
+                    <img src="./img/instagram.png" alt="" class="fIcon">
+                    <img src="./img/whatsapp.png" alt="" class="fIcon">
+                </div>
+            </div>
+            <div class="footerRightMenu">
+                <span class="copyright">@ecommerce website. All rights reserved. 2025.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
